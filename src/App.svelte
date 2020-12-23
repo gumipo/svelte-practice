@@ -13,21 +13,11 @@
 		activeItem = e.detail;
 	};
 
-	let polls = [
-		{
-			id: 1,
-			question: "React or Vue",
-			answerA: "React",
-			answerB: "Vue",
-			votesA: 9,
-			votesB: 15,
-		},
-	];
-
 	const handleAdd = (e) => {
-		const poll = e.detail;
-		polls = [poll, ...polls];
-		console.log(polls);
+		// const poll = e.detail;
+		// polls = [poll, ...polls];
+		// console.log(polls);
+		activeItem = "Current Polls";
 	};
 </script>
 
@@ -42,7 +32,7 @@
 <main>
 	<Tabs {items} {activeItem} on:tabChange={tabChange} />
 	{#if activeItem === 'Current Polls'}
-		<PollList {polls} />
+		<PollList />
 	{:else if activeItem === 'Add New Poll'}
 		<CreatePollForm on:add={handleAdd} />
 	{/if}
